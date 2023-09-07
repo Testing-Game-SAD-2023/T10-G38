@@ -1,0 +1,6 @@
+com.project.ProgettoSad
+com.project.ProgettoSad.controller
+com.project.ProgettoSad.exception
+com.project.ProgettoSad.model
+com.project.ProgettoSad.repository
+com.project.ProgettoSad.service

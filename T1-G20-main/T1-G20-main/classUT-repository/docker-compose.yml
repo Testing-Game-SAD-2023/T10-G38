@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+    app:
+        container_name: controller-T1-G20
+        build: .
+        ports:
+            - 8090:8080
+        expose:
+            - 8080
+        environment:
+            SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/classut_repo?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+            SPRING_DATASOURCE_USERNAME: root
+            SPRING_DATASOURCE_PASSWORD: root
+            FILE_UPLOAD_DIR: /app/ClassUT/
+        depends_on:
+            db:
+                condition: service_healthy
+        volumes:
+            - .\ClassiUT:/app/ClassUT
+
+    db:
+        container_name: db-T1-G20
+        image: mysql:8
+        volumes:
+            - .\database:/var/lib/mysql
+        ports:
+            - 3307:3307
+        expose:
+            - 3307
+        environment:
+            DATABASE_PORT: 3307
+            MYSQL_USER: admin
+            MYSQL_PASSWORD: root
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: classut_repo
+        healthcheck:
+            test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+            timeout: 20s
+            retries: 10
+        restart: always

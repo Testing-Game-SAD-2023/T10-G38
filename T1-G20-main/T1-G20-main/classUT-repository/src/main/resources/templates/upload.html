@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Upload Class</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #eaf7ea; 
+    }
+    h1 {
+      text-align: center;
+      font-size: 40px; 
+    }
+    form {
+      margin-top: 30px;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px; 
+    }
+    input[type="file"] {
+      margin-bottom: 10px;
+      font-size: 16px; 
+    }
+    input[type="number"] {
+      font-size: 16px; 
+    }
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 18px; 
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Upload Class</h1>
+  
+  <form id="uploadForm" enctype="multipart/form-data" th:action="@{/classut_repo/uploadClass}" method="post">
+    <label for="class_file">Seleziona il file:</label>
+    <input type="file" name="class_file" id="class_file" required>
+    <br>
+    <br>
+    <label for="complexity">Seleziona la complessità:</label>
+    <input type="number" name="complexity" id="complexity" required min="0">
+    <br>
+    <br>
+    <br>
+    <br>
+    <input type="submit" value="Upload">
+  </form>
+  
+  <script>
+    document.getElementById("uploadForm").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+      
+      var formData = new FormData(this);
+      
+      // Send POST request to uploadClassUT 
+      fetch(/*"http://localhost:8080/classut_repo/uploadClass"*/ this.action, {
+        method: "POST",
+        body: formData
+      })
+      .then(function(response) {
+        // Notes
+        response.json().then(function(data) {
+          alert("Notes:\n" + data.notes);
+        });
+      })
+      .catch(function(error) {
+        // Unexpected error
+        alert("Unexpected error: " + error.message);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+#FILES
+*.vpp.*
+*.mwb.*
+*.lock
+
+#FOLDERS
+.metadata/
+.vpprefdata/
+tmp/

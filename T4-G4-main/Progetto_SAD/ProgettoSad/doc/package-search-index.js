@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.project.ProgettoSad"},{"l":"com.project.ProgettoSad.controller"},{"l":"com.project.ProgettoSad.exception"},{"l":"com.project.ProgettoSad.model"},{"l":"com.project.ProgettoSad.repository"},{"l":"com.project.ProgettoSad.service"}];updateSearchResults();
