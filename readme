@@ -1,0 +1,11 @@
+Il software è pensato per essere anche facile da installare e fare il deploy.
+All'interno del repository è fornito il file install.bat.
+È necessario che la macchina su cui si intende installare il sistema rispetti questi requisiti:
+  Sistema Operativo: Windows 11
+  CPU: Quad Core da 2 GHz o superiore
+  RAM: 16 Gb o superiore
+  Disco Rigido: 20 Gb di spazio disponibile
+Inoltre è necessario che sulla macchina sia installato Docker Desktop e
+Windows Subsystem for Linux 2 (WSL 2). Una volta scaricato l'intero
+repository, il le batch di occuperà quindi di generare e avviare i container
+necessari all'applicativo.
